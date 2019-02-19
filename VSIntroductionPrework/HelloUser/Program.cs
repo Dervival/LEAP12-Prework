@@ -20,11 +20,11 @@ namespace HelloUser
         /// Get the user's first name
         /// </summary>
         /// <returns>The name</returns>
-        //private static string GetFirstName()
-        //{
-        //    Console.Write("Please enter your first name: ");
-        //    return Console.ReadLine();
-        //}
+        private static string GetFirstName()
+        {
+            Console.Write("Please enter your first name: ");
+            return Console.ReadLine();
+        }
 
         /// <summary>
         /// Get the user's last name

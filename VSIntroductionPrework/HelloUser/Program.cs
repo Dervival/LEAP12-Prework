@@ -41,11 +41,13 @@ namespace HelloUser
         /// </summary>
         private static void PrintGreeting()
         {
+            //Added a (disabled) breakpoint here for Debugging section of Visual Studio exercises for prework
             var first = GetFirstName();
             var last = GetLastName();
 
             var now = DateTime.Now;
 
+            //Added a (disabled) breakpoint here for Debugging section of Visual Studio exercises for prework
             Console.WriteLine("Hello, " + first + " " + last + "!");
             Console.WriteLine("The Date is " + now.ToShortDateString());
             Console.WriteLine("The Time is " + now.ToShortTimeString());

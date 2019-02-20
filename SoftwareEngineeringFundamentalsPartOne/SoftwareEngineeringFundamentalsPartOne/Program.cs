@@ -6,8 +6,16 @@ namespace HelloWorld
     {
         static void Main(string[] args)
         {
-            Suit cardSuit = Suit.Diamonds;
-            Console.WriteLine("cardSuit is " + cardSuit + ", which is " + (int)cardSuit + " in the enum");
+            Person x = new Person();
+            x.firstName = "foo";
+            x.lastName = "bar";
+            x.age = 999;
+            Person y = new Person();
+            y.firstName = "Jane";
+            y.lastName = "Doe";
+            y.age = 24;
+            x = y;
+            Console.WriteLine("Person x is " + x.firstName + " " + x.lastName + ", age " + x.age + ".");
         }
 
         /// <summary>
@@ -321,4 +329,12 @@ namespace HelloWorld
         Spades,
         Diamonds
     }
+
+    public struct Person
+    {
+        public string firstName;
+        public string lastName;
+        public int age;
+    }
+
 }

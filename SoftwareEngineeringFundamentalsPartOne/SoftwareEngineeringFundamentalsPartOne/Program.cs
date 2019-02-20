@@ -6,8 +6,8 @@ namespace HelloWorld
     {
         static void Main(string[] args)
         {
-            StringIndexing();
-            StringCases();
+            GettingPartsOfStrings();
+            SearchingStrings();
         }
 
         /// <summary>
@@ -199,6 +199,9 @@ namespace HelloWorld
             return returnString;
         }
 
+        /// <summary>
+        /// Function for showing off .ToUpper and .ToLower
+        /// </summary>
         static void StringCases()
         {
             string original = "This is a string. It originally has mixed cases.";
@@ -206,6 +209,61 @@ namespace HelloWorld
             Console.WriteLine(original.ToUpper());
             Console.WriteLine(original.ToLower());
             Console.ReadLine();
+        }
+
+        /// <summary>
+        /// Function for showing off getting parts of string via substring and remove
+        /// </summary>
+        static void GettingPartsOfStrings()
+        {
+            //Initial partitioning of string via substring
+            string stringToPartition = "Ahello worldE";
+            string partitionedString = "";
+            if(stringToPartition.Length > 1)
+            {
+                partitionedString = stringToPartition.Substring(1, stringToPartition.Length - 2);
+            }
+            Console.WriteLine(partitionedString);
+            //And a different length being partitioned
+            stringToPartition = "<This is fine.>";
+            if (stringToPartition.Length > 1)
+            {
+                partitionedString = stringToPartition.Substring(1, stringToPartition.Length - 2);
+            }
+            Console.WriteLine(partitionedString);
+            //Partitioning the string using .Remove
+            stringToPartition = "?Take three, using remove.$";
+            if(stringToPartition.Length > 1)
+            {
+                partitionedString = stringToPartition.Remove(stringToPartition.Length - 1);
+                partitionedString = partitionedString.Remove(0, 1);
+            }
+            Console.WriteLine(partitionedString);
+            //Partitioning the string using .Remove with a different length
+            stringToPartition = "`And for the last partitioning...Q";
+            if (stringToPartition.Length > 1)
+            {
+                partitionedString = stringToPartition.Remove(stringToPartition.Length - 1);
+                partitionedString = partitionedString.Remove(0, 1);
+            }
+            Console.WriteLine(partitionedString);
+            Console.ReadLine();
+        }
+
+        /// <summary>
+        /// Function for searching strings with 
+        /// </summary>
+        static void SearchingStrings()
+        {
+            string x = "Welcome to LEAP!";
+            char y = 'c';
+            int yIndexInX = x.IndexOf(y);
+            bool yInX = x.Contains(y);
+            string fakePath = @"x:\root\user\foobar.txt";
+            char driveLetter = fakePath.ToUpper()[0]; // X
+            //getting the filename with no extension is slightly tricky - first remove the extension, then remove everything above the filename in the path, including the slash
+            string fileName = fakePath.Remove(fakePath.LastIndexOf('.')); // x:\root\user\foobar
+            fileName = fileName.Substring(fileName.LastIndexOf('\\')+1); // foobar
         }
     }
 }

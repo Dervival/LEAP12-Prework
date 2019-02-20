@@ -7,7 +7,7 @@ namespace HelloWorld
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
-            ImplicitTypes();
+            OperatorsAssignmentIncrementAndDecrement();
         }
 
         /// <summary>
@@ -69,6 +69,22 @@ namespace HelloWorld
             Console.WriteLine("varDouble is of type " + varDouble.GetType() + " and value " + varDouble);
             Console.WriteLine("varChar is of type " + varChar.GetType() + " and value " + varChar);
             Console.WriteLine("varString is of type " + varString.GetType() + " and value " + varString);
+            Console.ReadLine();
+        }
+
+        /// <summary>
+        /// This function declares two integers x and y; after initialization, both are manipulated to create two variables via prefix and postfix incrementing. 
+        /// </summary>
+        static void OperatorsAssignmentIncrementAndDecrement()
+        {
+            int x = 10;
+            int y = 100;
+            int z1 = x++;
+            int z2 = ++y;
+            Console.WriteLine("x is " + x);
+            Console.WriteLine("y is " + y);
+            Console.WriteLine("z1 is " + z1 + ", which was x++");
+            Console.WriteLine("z2 is " + z2 + ", which was ++y");
             Console.ReadLine();
         }
     }

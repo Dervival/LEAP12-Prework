@@ -7,7 +7,7 @@ namespace HelloWorld
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
-            MinMaxVals();
+            ImplicitTypes();
         }
 
         /// <summary>
@@ -43,14 +43,32 @@ namespace HelloWorld
         }
 
         /// <summary>
-        /// 
+        /// This function shows the maximum value for an integer in C#, and what happens when it is overflowed.
         /// </summary>
         static void MinMaxVals()
         {
             int maxInt = int.MaxValue;
             Console.WriteLine("The maximum value for an int is " + maxInt + ".");
             maxInt++;
-            Console.WriteLine("Incrementing the maximum value for an int by one results in " + maxInt + ".");
+            Console.WriteLine("Incrementing the maximum value for an int by one results in " + maxInt + ". Notice how it has overflowed to the minimum of an integer value.");
+            Console.ReadLine();
+        }
+
+        /// <summary>
+        /// This function shows how var can be used to make a variable's type to be determined at run-time rather than compile time.
+        /// </summary>
+        static void ImplicitTypes()
+        {
+            var varBool = true;
+            var varInt = 10;
+            var varDouble = 10.4d;
+            var varChar = 'X';
+            var varString = "Foobar";
+            Console.WriteLine("varBool is of type " + varBool.GetType() + " and value " + varBool);
+            Console.WriteLine("varInt is of type " + varInt.GetType() + " and value " + varInt);
+            Console.WriteLine("varDouble is of type " + varDouble.GetType() + " and value " + varDouble);
+            Console.WriteLine("varChar is of type " + varChar.GetType() + " and value " + varChar);
+            Console.WriteLine("varString is of type " + varString.GetType() + " and value " + varString);
             Console.ReadLine();
         }
     }

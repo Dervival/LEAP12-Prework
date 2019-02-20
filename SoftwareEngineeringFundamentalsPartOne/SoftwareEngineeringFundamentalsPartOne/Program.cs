@@ -6,8 +6,8 @@ namespace HelloWorld
     {
         static void Main(string[] args)
         {
-            FormattedStrings();
-            PrintingAndParsingStrings();
+            Suit cardSuit = Suit.Diamonds;
+            Console.WriteLine("cardSuit is " + cardSuit + ", which is " + (int)cardSuit + " in the enum");
         }
 
         /// <summary>
@@ -312,5 +312,13 @@ namespace HelloWorld
             Double.TryParse(y, out g);
             Char.TryParse(z, out h);
         }
+    }
+
+    enum Suit
+    {
+        Hearts,
+        Clubs,
+        Spades,
+        Diamonds
     }
 }

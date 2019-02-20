@@ -61,7 +61,7 @@ namespace HelloWorld
         {
             var varBool = true;
             var varInt = 10;
-            var varDouble = 10.4d;
+            var varDouble = 10.4;
             var varChar = 'X';
             var varString = "Foobar";
             Console.WriteLine("varBool is of type " + varBool.GetType() + " and value " + varBool);
@@ -109,6 +109,27 @@ namespace HelloWorld
             double pi = 3.14159;
             //Expression that rounds a double to 3 decimal places using Math.Round
             double pitToThreePlaces = Math.Round(pi, 3);
+        }
+
+        /// <summary>
+        /// Function containing the steps pertaining to type conversions in the prework.
+        /// </summary>
+        static void TypeConversion()
+        {
+            int x = 10;
+            int y = 20;
+            int z = 99;
+            double a = 12.2;
+            double b = 24.79;
+            double c = 99999.124124;
+            //store integers in the doubles
+            a = x;
+            b = y;
+            c = z;
+            //store the doubles in the integers - note explicit casting
+            x = (int) a;
+            y = (int) b;
+            z = (int) c;
         }
     }
 }

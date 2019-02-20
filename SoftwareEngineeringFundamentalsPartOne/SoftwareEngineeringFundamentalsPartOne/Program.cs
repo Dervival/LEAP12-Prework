@@ -87,5 +87,28 @@ namespace HelloWorld
             Console.WriteLine("z2 is " + z2 + ", which was ++y");
             Console.ReadLine();
         }
+
+        /// <summary>
+        /// Function containing work for the Operators/Math segment of prework
+        /// </summary>
+        static void OperatorsMath()
+        {
+            //Declaration of x, y, z
+            int x = 10;
+            int y = 3;
+            int z = 20;
+            //Declaration of a, b, and c using x, y, and z
+            int a = y - z; //3 - 20 = -17
+            int b = z + x; // 20 + 10 = 30
+            int c = x / y; // 10 / 3 = 3 (integer division)
+            //Expression to see if x is even
+            bool isXEven = ((x % 2) == 0);
+            //Expression to see if y is not divisible by 3.
+            bool isYNotDivisibleByThree = !((y % 3) == 0);
+            //Need a double with more than 3 digits precision
+            double pi = 3.14159;
+            //Expression that rounds a double to 3 decimal places using Math.Round
+            double pitToThreePlaces = Math.Round(pi, 3);
+        }
     }
 }

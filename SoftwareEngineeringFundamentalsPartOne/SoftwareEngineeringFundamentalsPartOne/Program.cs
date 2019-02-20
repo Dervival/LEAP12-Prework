@@ -6,8 +6,9 @@ namespace HelloWorld
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-            OperatorsAssignmentIncrementAndDecrement();
+            StringEscapesAndLiterals();
+            StringConcatenation();
+            StringsWithLength();
         }
 
         /// <summary>
@@ -130,6 +131,41 @@ namespace HelloWorld
             x = (int) a;
             y = (int) b;
             z = (int) c;
+        }
+
+        /// <summary>
+        /// Function for the work in Strings/Escapes and Literals from prework
+        /// </summary>
+        static void StringEscapesAndLiterals()
+        {
+            string stringWithEscapeSequence = "Hello, world!\n\tThis is a single string variable with escape characters in it.";
+            Console.WriteLine(stringWithEscapeSequence);
+            Console.ReadLine();
+            string stringLiteral = @"This is a string literal - escape sequences such as \n, \t, and \\ are ignored and printed directly. This is done by adding a @ character before the double quotes.";
+            Console.WriteLine(stringLiteral);
+            Console.ReadLine();
+        }
+
+        /// <summary>
+        /// Function showing how strings can be concatenated with a +
+        /// </summary>
+        static void StringConcatenation()
+        {
+            string stringOne = "Hello,";
+            string stringTwo = " world!";
+            string bothStrings = stringOne + stringTwo;
+            Console.WriteLine(bothStrings);
+            Console.ReadLine();
+        }
+
+        /// <summary>
+        /// Function showing how to get and print a string's length
+        /// </summary>
+        static void StringsWithLength()
+        {
+            string sampleString = "This is a sample string";
+            Console.WriteLine(sampleString + ", of length " + sampleString.Length + ".");
+            Console.ReadLine();
         }
     }
 }

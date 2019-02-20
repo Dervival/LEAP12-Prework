@@ -7,7 +7,7 @@ namespace HelloWorld
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
-            Variables();
+            MinMaxVals();
         }
 
         /// <summary>
@@ -29,16 +29,28 @@ namespace HelloWorld
         /// </summary>
         static void Variables()
         {
-            bool IsTrue = true;
-            int IntOne = 1;
-            double DoubleOnePointFive = 1.5d;
-            char Char = 'A';
-            string StringOne = "One";
-            Console.WriteLine("Istrue is: " + IsTrue);
-            Console.WriteLine("IntOne is: " + IntOne);
-            Console.WriteLine("DoubleOnePointFive is: " + DoubleOnePointFive);
-            Console.WriteLine("Char is: " + Char);
-            Console.WriteLine("StringOne is: " + StringOne);
+            bool isTrue = true;
+            int intOne = 1;
+            double doubleOnePointFive = 1.5d;
+            char character = 'A';
+            string stringOne = "One";
+            Console.WriteLine("Istrue is: " + isTrue);
+            Console.WriteLine("IntOne is: " + intOne);
+            Console.WriteLine("DoubleOnePointFive is: " + doubleOnePointFive);
+            Console.WriteLine("Char is: " + character);
+            Console.WriteLine("StringOne is: " + stringOne);
+            Console.ReadLine();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        static void MinMaxVals()
+        {
+            int maxInt = int.MaxValue;
+            Console.WriteLine("The maximum value for an int is " + maxInt + ".");
+            maxInt++;
+            Console.WriteLine("Incrementing the maximum value for an int by one results in " + maxInt + ".");
             Console.ReadLine();
         }
     }

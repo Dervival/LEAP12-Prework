@@ -6,8 +6,8 @@ namespace HelloWorld
     {
         static void Main(string[] args)
         {
-            GettingPartsOfStrings();
-            SearchingStrings();
+            FormattedStrings();
+            PrintingAndParsingStrings();
         }
 
         /// <summary>
@@ -251,7 +251,7 @@ namespace HelloWorld
         }
 
         /// <summary>
-        /// Function for searching strings with 
+        /// Function for searching strings with IndexOf and Contains
         /// </summary>
         static void SearchingStrings()
         {
@@ -264,6 +264,53 @@ namespace HelloWorld
             //getting the filename with no extension is slightly tricky - first remove the extension, then remove everything above the filename in the path, including the slash
             string fileName = fakePath.Remove(fakePath.LastIndexOf('.')); // x:\root\user\foobar
             fileName = fileName.Substring(fileName.LastIndexOf('\\')+1); // foobar
+        }
+
+        /// <summary>
+        /// Function showing off string.Split()
+        /// </summary>
+        static void SplittingStrings()
+        {
+            string x = "This string has spaces in it, which will be split upon.";
+            string[] splitX = x.Split(' '); //Split will split a string into an array (or list, or possibly some other ICollection?) of strings by the separator passed in (in this case, a blank space)
+        }
+
+        /// <summary>
+        /// Function for string.format practice, formatting doubles (?)
+        /// </summary>
+        static void FormattedStrings()
+        {
+            const string x = "Hello there {0}, I hope you're having a wonderful {1} today!";
+            string y = string.Format(x, "User", "afternoon");
+            Console.WriteLine(y);
+            double d = 14.1444;
+            Console.WriteLine("The double d to two decimal places: " + Math.Round(d, 2));
+        }
+        
+        /// <summary>
+        /// Function for playing with parsing different types into strings and out of strings
+        /// </summary>
+        static void PrintingAndParsingStrings()
+        {
+            //Initializing a, b, c, d
+            bool a = true;
+            int b = 17;
+            double c = 94.12352;
+            char d = 'd';
+            //Initializing w, x, y, and z with .ToString()
+            string w = a.ToString();
+            string x = b.ToString();
+            string y = c.ToString();
+            string z = d.ToString();
+            //creating e, f, g, h from w, x, y, z using TryParse - could initialize in the tryParse itself but then I'd need to deal with scoping issues
+            bool e;
+            int f;
+            double g;
+            char h;
+            Boolean.TryParse(w, out e);
+            Int32.TryParse(x, out f);
+            Double.TryParse(y, out g);
+            Char.TryParse(z, out h);
         }
     }
 }

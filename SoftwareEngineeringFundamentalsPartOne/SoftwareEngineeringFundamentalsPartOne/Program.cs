@@ -6,9 +6,8 @@ namespace HelloWorld
     {
         static void Main(string[] args)
         {
-            StringEscapesAndLiterals();
-            StringConcatenation();
-            StringsWithLength();
+            StringIndexing();
+            StringCases();
         }
 
         /// <summary>
@@ -165,6 +164,47 @@ namespace HelloWorld
         {
             string sampleString = "This is a sample string";
             Console.WriteLine(sampleString + ", of length " + sampleString.Length + ".");
+            Console.ReadLine();
+        }
+
+        /// <summary>
+        /// Shell function for demonstrating string indexing
+        /// </summary>
+        static void StringIndexing()
+        {
+            string testString = "AaBbC";
+            string firstMiddleLast = ConcatFirstMiddleLast(testString);
+            Console.WriteLine("The first, middle, and last characters of " + testString + " are " + firstMiddleLast + ".");
+            testString = "Hello everyone!";
+            firstMiddleLast = ConcatFirstMiddleLast(testString);
+            Console.WriteLine("The first, middle, and last characters of " + testString + " are " + firstMiddleLast + ".");
+            Console.ReadLine();
+        }
+
+        /// <summary>
+        /// Helper function for demonstrating string indexing - returns a string comprised of the first, middle, and last characters of an input string
+        /// </summary>
+        /// <param name="input">A string whose first, middle, and last characters are to be returned.</param>
+        /// <returns>A string containing the first, middle, and last characters of the input.</returns>
+        static string ConcatFirstMiddleLast(string input)
+        {
+            string returnString = "";
+            if (string.IsNullOrEmpty(input))
+            {
+                return returnString;
+            }
+            returnString += input[0];
+            returnString += input[input.Length / 2];
+            returnString += input[input.Length - 1];
+            return returnString;
+        }
+
+        static void StringCases()
+        {
+            string original = "This is a string. It originally has mixed cases.";
+            Console.WriteLine(original);
+            Console.WriteLine(original.ToUpper());
+            Console.WriteLine(original.ToLower());
             Console.ReadLine();
         }
     }

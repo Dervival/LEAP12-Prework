@@ -21,7 +21,9 @@ namespace SoftwareEngFundPartTwo
             //PullOddsFromStringDoWhile();
             //PullOddsFromStringFor();
             //PullOddsFromStringForeach();
-            FindFirstCharacterLaterInString();
+            //FindFirstCharacterLaterInString();
+            //SingleDimensionArrays();
+            MultiDimensionalArrays();
         }
 
         /// <summary>
@@ -214,6 +216,9 @@ namespace SoftwareEngFundPartTwo
             Console.WriteLine("\n");
         }
 
+        /// <summary>
+        /// Function demonstrating loop flow control
+        /// </summary>
         static void FindFirstCharacterLaterInString()
         {
             string test = "test string";
@@ -225,6 +230,54 @@ namespace SoftwareEngFundPartTwo
                     Console.WriteLine("character " + charToFind + " found at index " + i);
                     break;
                 }
+            }
+        }
+
+        /// <summary>
+        /// Function demonstrating one-dimensional (integer) arrays
+        /// </summary>
+        static void SingleDimensionArrays()
+        {
+            //initializing the array
+            int[] singleArray = new int[10];
+            int i = 0;
+            while(i < singleArray.Length)
+            {
+                singleArray[i] = ++i; 
+            }
+            //printing it in reverse order
+            int accum = 0;
+            for(int j = singleArray.Length -1; j >= 0; j--)
+            {
+                Console.Write(singleArray[j] + " ");
+                accum += singleArray[j];
+            }
+            Console.WriteLine();
+            //printing the sum
+            Console.WriteLine("Sum of array: " + accum);
+            //printing the contents with no explicit loop
+            string arrayContents = string.Join(" ", singleArray);
+            Console.WriteLine(arrayContents);
+        }
+
+        /// <summary>
+        /// Function for showing off 2D arrays
+        /// </summary>
+        static void MultiDimensionalArrays()
+        {
+            int[][] multArray = new int[12][];
+            for(int i = 0; i < multArray.Length; i++)
+            {
+                //using jagged array nomenclature for the multi-dimensional array; need to instantiate the rows as new arrays
+                multArray[i] = new int[12];
+                for(int j = 0; j < multArray[i].Length; j++)
+                {
+                    multArray[i][j] = i * j;
+                }
+            }
+            foreach (int[] row in multArray)
+            {
+                Console.WriteLine(string.Join(" ", row));
             }
         }
     }

@@ -6,16 +6,35 @@ namespace HelloWorld
     {
         static void Main(string[] args)
         {
-            Person x = new Person();
-            x.firstName = "foo";
-            x.lastName = "bar";
-            x.age = 999;
-            Person y = new Person();
-            y.firstName = "Jane";
-            y.lastName = "Doe";
-            y.age = 24;
-            x = y;
-            Console.WriteLine("Person x is " + x.firstName + " " + x.lastName + ", age " + x.age + ".");
+            if(args.Length == 0 || args[0] == "/?")
+            {
+                Console.WriteLine("This program expects a direction, bool, and optional integer. Try putting in arguments like 'Left True 4' or 'Up False'.");
+                return;
+            }
+            else if(args.Length < 2)
+            {
+                Console.WriteLine("Please provide a direction and boolean in the arguments provided.");
+            }
+            Direction direction;
+            if(!Enum.TryParse<Direction>(args[0], out direction))
+            {
+                Console.WriteLine("The first parameter was not a valid direction, exiting.");
+                return;
+            }
+            bool userInput;
+            if(!bool.TryParse(args[1], out userInput))
+            {
+                Console.WriteLine("The second parameter was not a valid boolean, exiting.");
+                return;
+            }
+            if(Int32.TryParse(args[2], out int optional))
+            {
+                Console.WriteLine("Arguments provided: " + direction + ", " + userInput + ", " + optional);
+            }
+            else
+            {
+                Console.WriteLine("Arguments provided: " + direction + ", " + userInput);
+            }
         }
 
         /// <summary>
@@ -320,6 +339,37 @@ namespace HelloWorld
             Double.TryParse(y, out g);
             Char.TryParse(z, out h);
         }
+
+        /// <summary>
+        /// Function for containing stuff from practicing structs
+        /// </summary>
+        static void StructPractice()
+        {
+            Person x = new Person();
+            x.firstName = "foo";
+            x.lastName = "bar";
+            x.age = 999;
+            Person y = new Person();
+            y.firstName = "Jane";
+            y.lastName = "Doe";
+            y.age = 24;
+            x = y;
+            Console.WriteLine("Perso" +
+                "n x is " + x.firstName + " " + x.lastName + ", age " + x.age + ".");
+        }
+
+        static void ConsoleIOPractice()
+        {
+            Console.WriteLine("Hello, what is your first name?");
+            string firstName = Console.ReadLine();
+            Console.WriteLine("And your middle name?");
+            string middleName = Console.ReadLine();
+            Console.WriteLine("Finally, what is your last name?");
+            string lastName = Console.ReadLine();
+            Console.WriteLine("Nice to meet you, " + firstName + " " + middleName + " " + lastName + "!");
+            Console.WriteLine("Press any key to exit...");
+            Console.ReadKey();
+        }
     }
 
     enum Suit
@@ -328,6 +378,14 @@ namespace HelloWorld
         Clubs,
         Spades,
         Diamonds
+    }
+
+    enum Direction
+    {
+        Up,
+        Right,
+        Down,
+        Left
     }
 
     public struct Person

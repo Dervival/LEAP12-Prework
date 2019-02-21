@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace SoftwareEngFundPartTwo
 {
@@ -16,10 +17,11 @@ namespace SoftwareEngFundPartTwo
             //OrderOfOperationsNested("hello there person");
             //OrderOfOperationsNested("|||||||||||||||");
             //InfiniteWhileLoop();
-            PullOddsFromStringWhile();
-            PullOddsFromStringDoWhile();
-            PullOddsFromStringFor();
-            PullOddsFromStringForeach();
+            //PullOddsFromStringWhile();
+            //PullOddsFromStringDoWhile();
+            //PullOddsFromStringFor();
+            //PullOddsFromStringForeach();
+            FindFirstCharacterLaterInString();
         }
 
         /// <summary>
@@ -28,7 +30,7 @@ namespace SoftwareEngFundPartTwo
         static void IfElseConditionals()
         {
             int i = 101;
-            if( i < 100)
+            if (i < 100)
             {
                 Console.WriteLine("i is less than 100");
             }
@@ -48,7 +50,7 @@ namespace SoftwareEngFundPartTwo
         static void SwitchLogic()
         {
             Placement yourPlace = Placement.First;
-            switch(yourPlace)
+            switch (yourPlace)
             {
                 case Placement.First:
                     Console.WriteLine("Congratulations, you won!");
@@ -76,7 +78,7 @@ namespace SoftwareEngFundPartTwo
         /// <param name="input">String whose length is being checked against</param>
         static void OrderOfOperations(string input)
         {
-            if((input.Length < 5 && input.Length % 2 == 1) || (input.Length > 10 && input.Length % 2 == 0))
+            if ((input.Length < 5 && input.Length % 2 == 1) || (input.Length > 10 && input.Length % 2 == 0))
             {
                 Console.WriteLine("The string is either 1 character, 3 characters, or an even number of characters long - " + input.Length);
             }
@@ -92,9 +94,9 @@ namespace SoftwareEngFundPartTwo
         /// <param name="input">String whose length is being checked against</param>
         static void OrderOfOperationsNested(string input)
         {
-            if(input.Length < 5)
+            if (input.Length < 5)
             {
-                if(input.Length % 2 == 1)
+                if (input.Length % 2 == 1)
                 {
                     Console.WriteLine("The string is either 1 character, 3 characters, or an even number of characters long - " + input.Length);
                 }
@@ -103,9 +105,9 @@ namespace SoftwareEngFundPartTwo
                     Console.WriteLine("The string is neither 1 character, 3 characters, nor an even number greater than 8 characters long - " + input.Length);
                 }
             }
-            else if(input.Length > 10)
+            else if (input.Length > 10)
             {
-                if(input.Length % 2 == 0)
+                if (input.Length % 2 == 0)
                 {
                     Console.WriteLine("The string is either 1 character, 3 characters, or an even number of characters long - " + input.Length);
                 }
@@ -138,13 +140,13 @@ namespace SoftwareEngFundPartTwo
         {
             string s = "0123456789";
             int index = 0;
-            while(index < s.Length)
+            while (index < s.Length)
             {
                 //This is a bit ugly, but TryParse didn't seem to have an overload for a character in a string using bracket notation, and chars apparently cannot be explicitly cast to strings (but chars can be appended to empty strings!)
                 string digit = "";
                 digit += s[index];
                 Int32.TryParse(digit, out int d);
-                if(d % 2 == 1)
+                if (d % 2 == 1)
                 {
                     Console.Write(d);
                 }
@@ -181,7 +183,7 @@ namespace SoftwareEngFundPartTwo
         static void PullOddsFromStringFor()
         {
             string s = "0123456789";
-            for(int i = 0; i < s.Length; i++)
+            for (int i = 0; i < s.Length; i++)
             {
                 string digit = "";
                 digit += s[i];
@@ -200,16 +202,30 @@ namespace SoftwareEngFundPartTwo
         static void PullOddsFromStringForeach()
         {
             string s = "0123456789";
-            foreach(char c in s)
+            foreach (char c in s)
             {
                 string digit = "" + c;
                 Int32.TryParse(digit, out int d);
-                if(d % 2 == 1)
+                if (d % 2 == 1)
                 {
                     Console.Write(d);
                 }
             }
             Console.WriteLine("\n");
+        }
+
+        static void FindFirstCharacterLaterInString()
+        {
+            string test = "test string";
+            char charToFind = test[0];
+            for (int i = 1; i < test.Length; i++)
+            {
+                if (test[i] == charToFind)
+                {
+                    Console.WriteLine("character " + charToFind + " found at index " + i);
+                    break;
+                }
+            }
         }
     }
     enum Placement

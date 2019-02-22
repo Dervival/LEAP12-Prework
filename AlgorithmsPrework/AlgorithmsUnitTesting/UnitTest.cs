@@ -1,6 +1,7 @@
 using System;
 using Xunit;
 using AlgorithmsPrework;
+using System.Collections.Generic;
 
 namespace AlgorithmsUnitTesting
 {
@@ -86,6 +87,48 @@ namespace AlgorithmsUnitTesting
         public void XToThePowerOfYRecursiveReturnsCorrectValue()
         {
             Assert.Equal(8, Program.XToThePowerOfYRecursive(2, 3));
+        }
+
+        //Divide and Conquer - MultiplyList tests
+        [Fact]
+        public void MultiplyListHandlesArbitraryEvenList()
+        {
+            List<int> integers = new List<int> { 1, 5, 6, 2 };
+            Assert.Equal(60, Program.MultiplyList(integers));
+        }
+        [Fact]
+        public void MultiplyListHandlesArbitraryOddList()
+        {
+            List<int> integers = new List<int> { 1, 5, 6, 2, 9 };
+            Assert.Equal(540, Program.MultiplyList(integers));
+        }
+
+        [Fact]
+        public void MultiplyListHandlesEmptyListGracefully()
+        {
+            List<int> emptyList = new List<int>();
+            Assert.Equal(0, Program.MultiplyList(emptyList));
+        }
+
+        [Fact]
+        public void MultiplyListDivideAndConquerHandlesArbitraryEvenList()
+        {
+            List<int> integers = new List<int> { 1, 5, 6, 2 };
+            Assert.Equal(60, Program.MultiplyListDivideAndConquer(integers));
+        }
+
+        [Fact]
+        public void MultiplyListDivideAndConquerHandlesArbitraryOddList()
+        {
+            List<int> integers = new List<int> { 1, 5, 6, 2, 9 };
+            Assert.Equal(540, Program.MultiplyListDivideAndConquer(integers));
+        }
+
+        [Fact]
+        public void MultiplyListDivideAndConquerHandlesEmptyListGracefully()
+        {
+            List<int> emptyList = new List<int>();
+            Assert.Equal(0, Program.MultiplyListDivideAndConquer(emptyList));
         }
     }
 }

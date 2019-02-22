@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace AlgorithmsPrework
 {
@@ -133,6 +134,63 @@ namespace AlgorithmsPrework
                 return value;
             }
             return value * XToThePowerOfYRecursive(x, y - 1);
+        }
+
+        /// <summary>
+        /// Given a list of integers, returns the product of all integers in the list. If the list is empty, returns 0.
+        /// </summary>
+        /// <param name="nums">A list of integers.</param>
+        /// <returns>The product of the list of integers.</returns>
+        public static int MultiplyList(List<int> nums)
+        {
+            if(nums.Count == 0)
+            {
+                return 0;
+            }
+            int product = 1;
+            foreach(int num in nums)
+            {
+                product *= num;
+            }
+            return product;
+        }
+
+        /// <summary>
+        /// Given a list of integers, returns the product of all integers in the list using a divide and conquer strategy. If the list is empty, returns 0.
+        /// </summary>
+        /// <param name="nums">A list of integers.</param>
+        /// <returns>The product of the list of integers.</returns>
+        public static int MultiplyListDivideAndConquer(List<int> nums)
+        {
+            //Base cases - if list is empty, return 0 as above
+            if(nums.Count == 0)
+            {
+                return 0;
+            }
+            //Since we're divide and conquering, base case of a list with one element needs to be handled
+            else if(nums.Count == 1)
+            {
+                return nums[0];
+            }
+            //Divide and conquer - break the list into two halves, then recurse through each half. Once the recursion is complete, collapse and multiply the two halves together.
+            else
+            {
+                //Probably a better way to do the splitting and recursion, but this works
+                List<int> firstHalf = new List<int>();
+                List<int> secondHalf = new List<int>();
+                for(int i = 0; i < nums.Count; i++)
+                {
+                    if(i < nums.Count / 2)
+                    {
+                        firstHalf.Add(nums[i]);
+                    }
+                    else
+                    {
+                        secondHalf.Add(nums[i]);
+                    }
+                }
+                return MultiplyListDivideAndConquer(firstHalf) * MultiplyListDivideAndConquer(secondHalf);
+            }
         }
     }
 }

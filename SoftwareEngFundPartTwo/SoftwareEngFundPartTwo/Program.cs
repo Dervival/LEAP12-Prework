@@ -26,13 +26,25 @@ namespace SoftwareEngFundPartTwo
             //MultiDimensionalArrays();
 
             //Basic functions
-            PrintFunction("Hello world!"); //#1
-            Console.WriteLine(ConcatForPrint("Hello", ", ", "world!")); //#2
-            int[] testArray = { 1, 5, 3 }; //initialization of #3
-            UpdateAtIndex(testArray, 1, 2); //#3
-            Console.WriteLine(testArray[1]); //verifying #3
-            Console.WriteLine(RemoveEvenWords("Hello there, how are you doing today?")); //#4 - returns "Hello how you today?"
-            Console.WriteLine(CustomSubstring("foobar", 2)); //#5 - returns "obar"
+            //PrintFunction("Hello world!"); //#1
+            //Console.WriteLine(ConcatForPrint("Hello", ", ", "world!")); //#2
+            //int[] testArray = { 1, 5, 3 }; //initialization of #3
+            //UpdateAtIndex(testArray, 1, 2); //#3
+            //Console.WriteLine(testArray[1]); //verifying #3
+            //Console.WriteLine(RemoveEvenWords("Hello there, how are you doing today?")); //#4 - returns "Hello how you today?"
+            //Console.WriteLine(CustomSubstring("foobar", 2)); //#5 - returns "obar"
+
+            int[] equalArray = { 4, 9, 17 };
+            int[] inequalArray = { 4, 9, 22 };
+            Console.WriteLine("Are equalArray and equalArray equal to each other? " + AreArraysEqual(equalArray, equalArray)); //should be true
+            Console.WriteLine("Are equalArray and inequalArray equal to each other? " + AreArraysEqual(equalArray, inequalArray)); //should be false
+            OutputParameterCalculator(8, 4, out int sum, out int difference, out int product, out int quotient);
+            Console.WriteLine("Given the two integers 8 and 4, their sum is " + sum + ", their difference is " + difference + ", their product is " + product + ", and their quotient is " + quotient + ".");
+            string message = "Hello";
+            int index = 99;
+            Console.WriteLine("The character " + ReturnCharInStringViaReference(message, ref index) + " is at index " + index + " in the string '" + message + "'.");
+
+
         }
 
         /// <summary>
@@ -326,6 +338,11 @@ namespace SoftwareEngFundPartTwo
             array[index] = value;
         }
 
+        /// <summary>
+        /// Given a message with space-delimited words, return a space-delimited message with only the odd words from the original message.
+        /// </summary>
+        /// <param name="message">Message to remove even words from.</param>
+        /// <returns>A modified message of only odd words.</returns>
         static string RemoveEvenWords(string message)
         {
             string oddWords = "";
@@ -342,6 +359,13 @@ namespace SoftwareEngFundPartTwo
             return oddWords;
         }
 
+        /// <summary>
+        /// Creates a substring of the provided message using the given index and message length. If the length is not provided or would extend past the length of the message, go to the end of the provided string. If the index and/or length are provided and are invalid, return an empty string.
+        /// </summary>
+        /// <param name="message">A message to create a substring from.</param>
+        /// <param name="index">The index to begin the substring.</param>
+        /// <param name="length">The length of the substring.</param>
+        /// <returns>A substring from the provided message.</returns>
         static string CustomSubstring(string message, int index = 0, int length = 0)
         {
             //Invalid index or length
@@ -356,6 +380,64 @@ namespace SoftwareEngFundPartTwo
             }
             //Else return the desired substring
             return message.Substring(index, length);
+        }
+
+        /// <summary>
+        /// Determines if two int arrays contains the same elements in the same order and returns true if so.
+        /// </summary>
+        /// <param name="array1">The first integer array to be compared.</param>
+        /// <param name="array2">The second integer array to be compared.</param>
+        /// <returns>True if both arrays contain the same elements in the same order, false if otherwise.</returns>
+        static bool AreArraysEqual(int[] array1, int[] array2)
+        {
+            if(array1.Length != array2.Length)
+            {
+                return false;
+            }
+            for(int i = 0; i < array1.Length; i++)
+            {
+                if(array1[i] != array2[i])
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        /// <summary>
+        /// Example for output parameters - generates a sum, difference, product, and quotient of two provided integers.
+        /// </summary>
+        /// <param name="a">First int to be calculated on.</param>
+        /// <param name="b">Second int to be calculated on.</param>
+        /// <param name="sum">Sum of both ints.</param>
+        /// <param name="difference">Difference of both ints.</param>
+        /// <param name="product">Product of both ints.</param>
+        /// <param name="quotient">Quotient of both ints.</param>
+        static void OutputParameterCalculator(int a, int b, out int sum, out int difference, out int product, out int quotient)
+        {
+            sum = a + b;
+            difference = a - b;
+            product = a * b;
+            quotient = a / b;
+        }
+
+        /// <summary>
+        /// Returns the character in a string at a given index. If the index is out of range, the index is rewritten to the nearest extreme of the string's range, and returns that character.
+        /// </summary>
+        /// <param name="message">Message to retrieve character from.</param>
+        /// <param name="index">Index to retrieve a character at.</param>
+        /// <returns></returns>
+        static char ReturnCharInStringViaReference(string message, ref int index)
+        {
+            if(index < 0)
+            {
+                index = 0;
+            }
+            if(index >= message.Length)
+            {
+                index = message.Length - 1;
+            }
+            return message[index];
         }
     }
     enum Placement

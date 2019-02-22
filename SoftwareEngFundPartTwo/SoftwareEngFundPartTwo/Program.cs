@@ -23,7 +23,16 @@ namespace SoftwareEngFundPartTwo
             //PullOddsFromStringForeach();
             //FindFirstCharacterLaterInString();
             //SingleDimensionArrays();
-            MultiDimensionalArrays();
+            //MultiDimensionalArrays();
+
+            //Basic functions
+            PrintFunction("Hello world!"); //#1
+            Console.WriteLine(ConcatForPrint("Hello", ", ", "world!")); //#2
+            int[] testArray = { 1, 5, 3 }; //initialization of #3
+            UpdateAtIndex(testArray, 1, 2); //#3
+            Console.WriteLine(testArray[1]); //verifying #3
+            Console.WriteLine(RemoveEvenWords("Hello there, how are you doing today?")); //#4 - returns "Hello how you today?"
+            Console.WriteLine(CustomSubstring("foobar", 2)); //#5 - returns "obar"
         }
 
         /// <summary>
@@ -279,6 +288,74 @@ namespace SoftwareEngFundPartTwo
             {
                 Console.WriteLine(string.Join(" ", row));
             }
+        }
+
+        /// <summary>
+        /// Prints out a message passed in as an argument.
+        /// </summary>
+        /// <param name="message">String to be printed out.</param>
+        static void PrintFunction(string message)
+        {
+            Console.WriteLine(message);
+        }
+
+        /// <summary>
+        /// Concatenates and returns three strings.
+        /// </summary>
+        /// <param name="s1">Base string to add to.</param>
+        /// <param name="s2">First string to concatenate to the base string.</param>
+        /// <param name="s3">Second string to concatenate to the base string.</param>
+        /// <returns>A concatenated string of all arguments.</returns>
+        static string ConcatForPrint(string s1, string s2, string s3)
+        {
+            return s1 + s2 + s3;
+        }
+
+        /// <summary>
+        /// Updates the given integer array with the given value at the provided index. If the index is out of range, does nothing.
+        /// </summary>
+        /// <param name="array">Array to be modified.</param>
+        /// <param name="index">Index of array where modification is to occur.</param>
+        /// <param name="value">Value to update the array with.</param>
+        static void UpdateAtIndex(int[] array, int index, int value)
+        {
+            if(index < 0 || index >= array.Length)
+            {
+                return;
+            }
+            array[index] = value;
+        }
+
+        static string RemoveEvenWords(string message)
+        {
+            string oddWords = "";
+            string[] wordsArray = message.Split(" ");
+            for(int i = 0; i < wordsArray.Length; i++)
+            {
+                if(i%2 == 0)
+                {
+                    oddWords += wordsArray[i] + " ";
+                }
+            }
+            //removing the trailing space...
+            oddWords.Remove(oddWords.Length - 1);
+            return oddWords;
+        }
+
+        static string CustomSubstring(string message, int index = 0, int length = 0)
+        {
+            //Invalid index or length
+            if(index < 0 || length < 0 || index >= message.Length)
+            {
+                return "";
+            }
+            //Length not provided or substring would go past end of the string
+            if(length == 0 || index + length > message.Length)
+            {
+                return message.Substring(index);
+            }
+            //Else return the desired substring
+            return message.Substring(index, length);
         }
     }
     enum Placement

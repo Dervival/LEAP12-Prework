@@ -190,7 +190,29 @@ namespace AlgorithmsPrework
                     }
                 }
                 return MultiplyListDivideAndConquer(firstHalf) * MultiplyListDivideAndConquer(secondHalf);
+            }   
+        }
+
+        /// <summary>
+        /// Given a room's size, a list of possible box sizes, and a list of boxes already in the room, uses a greedy algorithm to generate a list of boxes that uses the fewest number of boxes to fill the room without overflowing it.
+        /// </summary>
+        /// <param name="roomSize">The maximum size of the room.</param>
+        /// <param name="possibleSizes">A list of possible box sizes.</param>
+        /// <param name="boxes">A list of the size of boxes already in the room.</param>
+        /// <returns>A list of sizes of boxes who fill the room up as much as possible.</returns>
+        public static List<int> FillRoomWithBoxes(int roomSize, List<int> possibleSizes, List<int> boxes)
+        {
+            for(int i = 0; i < possibleSizes.Count; i++)
+            {
+                if(possibleSizes[i] <= roomSize)
+                {
+                    boxes.Add(possibleSizes[i]);
+                    roomSize -= possibleSizes[i];
+                    FillRoomWithBoxes(roomSize, possibleSizes, boxes);
+                    break;
+                }
             }
+            return boxes;
         }
     }
 }

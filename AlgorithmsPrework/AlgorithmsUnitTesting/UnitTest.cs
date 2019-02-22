@@ -130,5 +130,28 @@ namespace AlgorithmsUnitTesting
             List<int> emptyList = new List<int>();
             Assert.Equal(0, Program.MultiplyListDivideAndConquer(emptyList));
         }
+
+        //Greedy - FillRoomWithBoxes tests
+        [Fact]
+        public void FillRoomWithBoxesInitialExample()
+        {
+            int roomSize = 25;
+            List<int> sizes = new List<int> { 7, 3, 1 };
+            List<int> boxes = new List<int>();
+            Program.FillRoomWithBoxes(roomSize, sizes, boxes);
+            List<int> expectedBoxes = new List<int> { 7, 7, 7, 3, 1 };
+            Assert.Equal(expectedBoxes, boxes);
+        }
+
+        [Fact]
+        public void FillRoomWithBoxesReturnsEmptyListIfAllSizesTooBig()
+        {
+            int roomSize = 2;
+            List<int> sizes = new List<int> { 9, 5, 3 };
+            List<int> boxes = new List<int>();
+            Program.FillRoomWithBoxes(roomSize, sizes, boxes);
+            List<int> expected = new List<int>();
+            Assert.Equal(expected, boxes);
+        }
     }
 }

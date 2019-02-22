@@ -23,5 +23,29 @@ namespace AlgorithmsUnitTesting
         {
             Assert.False(Program.IsFirstCharRepeated(""));
         }
+
+        [Fact]
+        public void ReverseStringActsAsExpectedOnOddLengthString()
+        {
+            Assert.Equal("olleH", Program.ReverseString("Hello"));
+        }
+
+        [Fact]
+        public void ReverseStringActsAsExpectedOnEvenLengthString()
+        {
+            Assert.Equal("PAEL", Program.ReverseString("LEAP"));
+        }
+
+        [Fact]
+        public void ReverseStringRecursionActsAsExpectedOnOddLengthString()
+        {
+            Assert.Equal("olleH", Program.ReverseStringRecursion("Hello"));
+        }
+
+        [Fact]
+        public void ReverseStringRecursionActsAsExpectedOnEvenLengthString()
+        {
+            Assert.Equal("PAEL", Program.ReverseStringRecursion("LEAP"));
+        }
     }
 }

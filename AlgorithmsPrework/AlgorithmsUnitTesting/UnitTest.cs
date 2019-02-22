@@ -47,5 +47,29 @@ namespace AlgorithmsUnitTesting
         {
             Assert.Equal("PAEL", Program.ReverseStringRecursion("LEAP"));
         }
+
+        [Fact]
+        public void GetSumBetweenNumbersWorksAsExpectedWithValidCase()
+        {
+            Assert.Equal(55, Program.GetSumBetweenNumbers(1, 10));
+        }
+
+        [Fact]
+        public void GetSumBetweenNumbersReturnsZeroWithInvalidMinMax()
+        {
+            Assert.Equal(0, Program.GetSumBetweenNumbers(10, 1));
+        }
+
+        [Fact]
+        public void GetSumBetweenNumbersRecursiveWorksAsExpectedWithValidCase()
+        {
+            Assert.Equal(55, Program.GetSumBetweenNumbersRecursive(1, 10));
+        }
+
+        [Fact]
+        public void GetSumBetweenNumbersRecursiveReturnsZeroWithInvalidMinMax()
+        {
+            Assert.Equal(0, Program.GetSumBetweenNumbersRecursive(10, 1));
+        }
     }
 }

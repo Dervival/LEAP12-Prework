@@ -66,5 +66,40 @@ namespace AlgorithmsPrework
             //Recurse on all but the last character of the string; the last character should be at the front
             return toReverse[trLength] + ReverseStringRecursion(toReverse.Substring(0, trLength));
         }
+
+        /// <summary>
+        /// Given a minimum and maximum, iteratively calculates the sum of the integers bounded by those two numbers, inclusively. If the minimum is less than the maximum, returns 0.
+        /// </summary>
+        /// <param name="min">The first number to start summing.</param>
+        /// <param name="max">The last number to start summing.</param>
+        /// <returns>The sum of all integers between min and max, inclusive.</returns>
+        public static int GetSumBetweenNumbers(int min, int max)
+        {
+            if(min > max)
+            {
+                return 0;
+            }
+            int accum = 0;
+            for(int i = min; i <= max; i++)
+            {
+                accum += i;
+            }
+            return accum;
+        }
+
+        /// <summary>
+        /// Given a minimum and maximum, recursively calculates the sum of the integers bounded by those two numbers, inclusively. If the minimum is less than the maximum, returns 0.
+        /// </summary>
+        /// <param name="min">The first number to start summing.</param>
+        /// <param name="max">The last number to start summing.</param>
+        /// <returns>The sum of all integers between min and max, inclusive.</returns>
+        public static int GetSumBetweenNumbersRecursive(int min, int max)
+        {
+            if (min > max)
+            {
+                return 0;
+            }
+            return min + GetSumBetweenNumbersRecursive(min + 1, max);
+        }
     }
 }

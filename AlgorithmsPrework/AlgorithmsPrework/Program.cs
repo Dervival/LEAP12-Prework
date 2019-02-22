@@ -101,5 +101,38 @@ namespace AlgorithmsPrework
             }
             return min + GetSumBetweenNumbersRecursive(min + 1, max);
         }
+
+        /// <summary>
+        /// Given a base x and a exponent y, iteratively calculates x^y.
+        /// </summary>
+        /// <param name="x">The base to be exponentiated.</param>
+        /// <param name="y">The exponent of the expression.</param>
+        /// <returns>The value of x^y.</returns>
+        public static int XToThePowerOfY(int x, int y)
+        {
+            int value = x;
+            for(int i = 1; i < y; i++)
+            {
+                value *= x;
+            }
+            return value;
+        }
+
+        /// <summary>
+        /// Given a base x and a exponent y, recursively calculates x^y.
+        /// </summary>
+        /// <param name="x">The base to be exponentiated.</param>
+        /// <param name="y">The exponent of the expression.</param>
+        /// <returns>The value of x^y.</returns>
+        public static int XToThePowerOfYRecursive(int x, int y)
+        {
+            int value = x;
+            //base case - y is 1 or less (since this is integer exponentiation, we can't handle negative or partial exponents)
+            if(y < 2)
+            {
+                return value;
+            }
+            return value * XToThePowerOfYRecursive(x, y - 1);
+        }
     }
 }

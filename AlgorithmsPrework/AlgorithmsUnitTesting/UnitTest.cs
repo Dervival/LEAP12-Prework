@@ -6,6 +6,7 @@ namespace AlgorithmsUnitTesting
 {
     public class UnitTest
     {
+        //Brute force (IsFirstCharRepeated) tests
         [Fact]
         public void IsFirstCharRepeatedReturnsTrueIfFirstCharIsInStringTwice()
         {
@@ -24,6 +25,7 @@ namespace AlgorithmsUnitTesting
             Assert.False(Program.IsFirstCharRepeated(""));
         }
 
+        //Recursion - ReverseString tests
         [Fact]
         public void ReverseStringActsAsExpectedOnOddLengthString()
         {
@@ -48,6 +50,7 @@ namespace AlgorithmsUnitTesting
             Assert.Equal("PAEL", Program.ReverseStringRecursion("LEAP"));
         }
 
+        //Recursion - GetSumBetweenNumbers tests
         [Fact]
         public void GetSumBetweenNumbersWorksAsExpectedWithValidCase()
         {
@@ -70,6 +73,19 @@ namespace AlgorithmsUnitTesting
         public void GetSumBetweenNumbersRecursiveReturnsZeroWithInvalidMinMax()
         {
             Assert.Equal(0, Program.GetSumBetweenNumbersRecursive(10, 1));
+        }
+
+        //Recursion - XToThePowerOfY tests
+        [Fact]
+        public void XToThePowerOfYReturnsCorrectValue()
+        {
+            Assert.Equal(8, Program.XToThePowerOfY(2, 3));
+        }
+
+        [Fact]
+        public void XToThePowerOfYRecursiveReturnsCorrectValue()
+        {
+            Assert.Equal(8, Program.XToThePowerOfYRecursive(2, 3));
         }
     }
 }

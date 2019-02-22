@@ -43,8 +43,6 @@ namespace SoftwareEngFundPartTwo
             string message = "Hello";
             int index = 99;
             Console.WriteLine("The character " + ReturnCharInStringViaReference(message, ref index) + " is at index " + index + " in the string '" + message + "'.");
-
-
         }
 
         /// <summary>
